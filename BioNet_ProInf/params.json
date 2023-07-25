@@ -1,0 +1,113 @@
+{
+    "arch":{
+        "encoder":{
+            "simple":{
+                "input_size": 280,
+                "output_size":280,
+                "hidden_sizes": [256, 256, 256]
+            },
+            "denoising":{
+                "input_size": 280,
+                "output_size":256,
+                "hidden_sizes": [256, 256, 256]
+            },
+            "sparse":{
+                "input_size": 280,
+                "output_size":256,
+                "hidden_sizes": [256, 256, 256]
+            },
+            "sparse_and_denoising":{
+                "input_size": 280,
+                "output_size":256,
+                "hidden_sizes": [256, 256, 256]
+            }
+        },
+        "decoder":{
+            "simple":{
+                "input_size": 280,
+                "output_size": 280,
+                "hidden_sizes": [256, 256, 256]    
+            },
+            "denoising":{
+                "input_size": 256,
+                "output_size": 280,
+                "hidden_sizes": [128, 128, 256]    
+            },
+            "sparse":{
+                "input_size": 256,
+                "output_size": 280,
+                "hidden_sizes": [256, 256, 256]    
+            },
+            "sparse_and_denoising":{
+                "input_size": 256,
+                "output_size": 280,
+                "hidden_sizes": [256, 256, 256]    
+            }    
+        },
+        "towers":{
+            "tower_A":{
+                "use_resnet": false,
+                "block_sizes": [128, 128, 64],
+                "input_size": 128,
+                "output_size": 2,
+                "hidden_sizes": []     
+            },
+            "tower_B":{
+                "use_resnet": true,
+                "block_sizes": [128, 128, 64],
+                "input_size": 128,
+                "output_size": 2,
+                "hidden_sizes": []     
+            },
+            "tower_C":{
+                "use_resnet": true,
+                "block_sizes": [128, 128, 64],
+                "input_size": 128,
+                "output_size": 2,
+                "hidden_sizes": [] 
+            }
+        },
+        "shared":{
+            "use_resnet": true,
+            "block_sizes": [256, 128, 128],
+            "input_size": 280,
+            "output_size": 128,
+            "hidden_sizes": [] 
+        },
+        "reuse_autoencoder": false
+    },
+    "training":{
+        "main_task": 0,
+        "version": "new",
+        "cohort": "CU",
+        "status": "test",
+        "patient": "CU1076",
+        "epoch": 16,
+        "batch_size": 1024,
+        "threshold": 0.8,
+        "lrs":{
+            "encoder": 2e-3,
+            "decoder": 2e-3,
+            "towers": {
+                "tower_A": 1e-3,
+                "tower_B": 1e-3,
+                "tower_C": 1e-3
+            },
+            "shared": 2e-3
+        },
+        "freeze_epoch": 1000000
+    },
+    "loss_param":{
+        "nu": 0.8,
+        "barrier_weight": 0,
+        "alpha": 0.0, 
+        "gamma": 0.2,
+        "autoencoder_loss_func": "simple",
+        "beta": 0.0001,
+        "noise_factor": 0.1,
+        "barrier_threshold": 1.2,
+        "barrier_epsilon": 1e-4
+    },
+    "seed": 0,
+    "model_info": "resnet_with_unlabel"
+}
