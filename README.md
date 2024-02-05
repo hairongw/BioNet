@@ -8,18 +8,18 @@ BioNet consists of two networks: BioNet_Neu to predict **Neu** using MRI; BioNet
 This is a PyTorch implementation of [this paper](https://www.biorxiv.org/content/10.1101/2022.12.20.521086v3.full.pdf).
 
 ## Dataset
-- **MRI**: Due to restrictions on data privacy, we are not allowed to upload raw MRI images. To ensure that shared data remains non-identifiable, we have uploaded texture features that were extracted from raw MRIs. These texture features are the input of BioNet. The datasets for Cohort A and Cohort B are accessible on Figshare through [the project page](https://figshare.com/projects/Texture_features_of_Multiparametric_MRI_-_Recurrent_Glioblastoma/193223). The detailed methodology for this texture feature extraction is comprehensively outlined in [this paper](https://www.nature.com/articles/s41598-021-83141-z). For further reference and implementation, the extraction codes can be found in the folder Texture Feature Extraction.
+- **MRI**: Due to restrictions on data privacy, we are not allowed to upload raw MRI images. To ensure that shared data remains non-identifiable, we have uploaded texture features that were extracted from raw MRIs. These texture features are the input of BioNet. The datasets for Cohort A and Cohort B are accessible on Figshare through [the project page](https://figshare.com/projects/Texture_features_of_Multiparametric_MRI_-_Recurrent_Glioblastoma/193223). The detailed methodology for this texture feature extraction is comprehensively outlined in [Hu et al. (2021)](https://www.nature.com/articles/s41598-021-83141-z). For further reference and implementation, the extraction codes can be found in the folder Texture Feature Extraction.
 
-- **RNAseq and Enrichment Analysis**: published in [this paper](https://www.nature.com/articles/s41467-023-38186-1).
+- **RNAseq and Enrichment Analysis**: published in [Al-Dalahmah et al. (2023)](https://www.nature.com/articles/s41467-023-38186-1).
 
 ## Main results
 ![Picture3](https://github.com/hairongw/BioNet/assets/30871667/cd3ad781-6cbb-4878-82b8-ffff9c1673bc)
 
 Competing methods:
-- Multitask Adversarial Autoencoder (MTL-AAE): For implementation details, please refer to the folder Competing Methods.
+- Multitask Adversarial Autoencoder (MTL-AAE): This model was originally proposed in [Latif et al. (2022)](https://www.computer.org/csdl/journal/ta/2022/02/09052467/1iFLxG1NYkM). For implementation details, please refer to the folder Competing Methods.
 - Multitask Learning Neural Network (MTL-NN): For implementation details, please refer to the folder Competing Methods.
 - Feed-forward Neural Network (NN): For implementation details, please refer to the folder Competing Methods.
-- A Unified Semi-supervised Learning Algorithm (AdaMatch): We implemented AdaMatch by using the code provided in the original paper. The GitHub repository can be found [here](https://github.com/google-research/adamatch).
+- A Unified Semi-supervised Learning Algorithm (AdaMatch): This model was originally proposed in [Berthelot et al. (2022)](https://openreview.net/pdf?id=Q5uh1Nvv5dm). We implemented AdaMatch by using the code provided in the original paper. The GitHub repository can be found [here](https://github.com/google-research/adamatch).
 - Support Vector Regression (SVR): We implemented SVR using the [sklearn.svm.SVR](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html) module from the scikit-learn package.
 - Random Forest (RF): We implemented RF using the [sklearn.ensemble.RandomForestRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html) module from the scikit-learn package.
 
